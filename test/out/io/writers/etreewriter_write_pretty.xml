@@ -1,0 +1,9 @@
+<?xml version='1.0' encoding='utf-8'?>
+<root>
+  <foo />
+  <bar abc="123" defg="345" />
+  <baz>
+    <ein />
+    <zwei />
+  </baz>
+</root>

@@ -1,0 +1,165 @@
+<?xml version='1.0' encoding='utf-8'?>
+<relais version="0.8.0">
+  <sample>
+    <metadata>
+      <identifier>UKG/1/2006</identifier>
+      <title>UKG/1/2006</title>
+      <source>uk.ac.iah.stars</source>
+    </metadata>
+    <region_id>UKG</region_id>
+    <date_collected date="2006-10-26 00:00:00" exact="EXACT" />
+    <date_received value="2006-10-26 00:00:00" />
+    <status>COMPLETED</status>
+    <host>Pig</host>
+    <outcomes>
+      <outcome>NEGATIVE</outcome>
+    </outcomes>
+    <outcomes>['NEGATIVE']</outcomes>
+  </sample>
+  <sample>
+    <metadata>
+      <identifier>UKG/2/2006</identifier>
+      <title>UKG/2/2006</title>
+      <source>uk.ac.iah.stars</source>
+    </metadata>
+    <region_id>UKG</region_id>
+    <date_collected date="2006-10-26 00:00:00" exact="EXACT" />
+    <date_received value="2006-10-26 00:00:00" />
+    <status>COMPLETED</status>
+    <host>Pig</host>
+    <outcomes>
+      <outcome>NEGATIVE</outcome>
+    </outcomes>
+    <outcomes>['NEGATIVE']</outcomes>
+  </sample>
+  <sample>
+    <metadata>
+      <identifier>UKG/3/2006</identifier>
+      <title>UKG/3/2006</title>
+      <source>uk.ac.iah.stars</source>
+    </metadata>
+    <region_id>UKG</region_id>
+    <date_collected date="2006-10-26 00:00:00" exact="EXACT" />
+    <date_received value="2006-10-26 00:00:00" />
+    <status>COMPLETED</status>
+    <host>Pig</host>
+    <outcomes>
+      <outcome>NEGATIVE</outcome>
+    </outcomes>
+    <outcomes>['NEGATIVE']</outcomes>
+  </sample>
+  <sample>
+    <metadata>
+      <identifier>UKG/4/2006</identifier>
+      <title>UKG/4/2006</title>
+      <source>uk.ac.iah.stars</source>
+    </metadata>
+    <region_id>UKG</region_id>
+    <date_collected date="2006-10-26 00:00:00" exact="EXACT" />
+    <date_received value="2006-10-26 00:00:00" />
+    <status>COMPLETED</status>
+    <host>Pig</host>
+    <outcomes>
+      <outcome>NEGATIVE</outcome>
+    </outcomes>
+    <outcomes>['NEGATIVE']</outcomes>
+  </sample>
+  <sample>
+    <metadata>
+      <identifier>UKG/5/2006</identifier>
+      <title>UKG/5/2006</title>
+      <source>uk.ac.iah.stars</source>
+    </metadata>
+    <region_id>UKG</region_id>
+    <date_collected date="2006-10-26 00:00:00" exact="EXACT" />
+    <date_received value="2006-10-26 00:00:00" />
+    <status>COMPLETED</status>
+    <host>Pig</host>
+    <outcomes>
+      <outcome>NEGATIVE</outcome>
+    </outcomes>
+    <outcomes>['NEGATIVE']</outcomes>
+  </sample>
+  <sample>
+    <metadata>
+      <identifier>UKG/6/2006</identifier>
+      <title>UKG/6/2006</title>
+      <source>uk.ac.iah.stars</source>
+    </metadata>
+    <region_id>UKG</region_id>
+    <date_collected date="2006-10-26 00:00:00" exact="EXACT" />
+    <date_received value="2006-10-26 00:00:00" />
+    <status>COMPLETED</status>
+    <host>Pig</host>
+    <outcomes>
+      <outcome>NEGATIVE</outcome>
+    </outcomes>
+    <outcomes>['NEGATIVE']</outcomes>
+  </sample>
+  <sample>
+    <metadata>
+      <identifier>UKG/7/2006</identifier>
+      <title>UKG/7/2006</title>
+      <source>uk.ac.iah.stars</source>
+    </metadata>
+    <region_id>UKG</region_id>
+    <date_collected date="2006-10-26 00:00:00" exact="EXACT" />
+    <date_received value="2006-10-26 00:00:00" />
+    <status>COMPLETED</status>
+    <host>Pig</host>
+    <outcomes>
+      <outcome>NEGATIVE</outcome>
+    </outcomes>
+    <outcomes>['NEGATIVE']</outcomes>
+  </sample>
+  <sample>
+    <metadata>
+      <identifier>UKG/8/2006</identifier>
+      <title>UKG/8/2006</title>
+      <source>uk.ac.iah.stars</source>
+    </metadata>
+    <region_id>UKG</region_id>
+    <date_collected date="2006-10-26 00:00:00" exact="EXACT" />
+    <date_received value="2006-10-26 00:00:00" />
+    <status>COMPLETED</status>
+    <host>Pig</host>
+    <outcomes>
+      <outcome>NEGATIVE</outcome>
+    </outcomes>
+    <outcomes>['NEGATIVE']</outcomes>
+  </sample>
+  <sample>
+    <metadata>
+      <identifier>UKG/9/2006</identifier>
+      <title>UKG/9/2006</title>
+      <source>uk.ac.iah.stars</source>
+    </metadata>
+    <region_id>UKG</region_id>
+    <date_collected date="2006-10-26 00:00:00" exact="EXACT" />
+    <date_received value="2006-10-26 00:00:00" />
+    <status>COMPLETED</status>
+    <host>Pig</host>
+    <outcomes>
+      <outcome>NEGATIVE</outcome>
+    </outcomes>
+    <outcomes>['NEGATIVE']</outcomes>
+  </sample>
+  <sample>
+    <metadata>
+      <identifier>IRN/11/2006</identifier>
+      <title>IRN/11/2006</title>
+      <source>uk.ac.iah.stars</source>
+    </metadata>
+    <region_id>IRN</region_id>
+    <address>Aydion, Tobas, Yazd</address>
+    <location lat="31.55" lon="54.22" method="EXACT" />
+    <date_collected date="2006-09-12 00:00:00" exact="EXACT" />
+    <date_received value="2006-11-20 00:00:00" />
+    <status>COMPLETED</status>
+    <host>Cattle</host>
+    <outcomes>
+      <outcome>O</outcome>
+    </outcomes>
+    <outcomes>[u'O']</outcomes>
+  </sample>
+</relais>

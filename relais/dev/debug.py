@@ -31,7 +31,7 @@ def MSG (*args, **kwargs):
 	"""
 	A crude 'printf' style debugging statement.
 	
-	:Params:
+	:Parameters:
 		args
 			Values to be printed out 'as-is', rendered as strings.
 		kwargs
@@ -54,7 +54,7 @@ def MSG (*args, **kwargs):
 		debug.MSG ("fred",f="dfsdfds",terd=1)
 		
 	"""
-	sys.stderr.write ("DEBUG (%s). %s%s!!\n" % (
+	sys.stderr.write ("DEBUG (%s): %s%s\n" % (
 			get_call_locn_str (-3),
 			' '.join (map (str, args)),
 			' '.join (map (lambda a: a+"="+str(kwargs[a]), kwargs.keys()))
@@ -69,7 +69,7 @@ def get_call_locn (level=1):
 	"""
 	Return information about where this function was called from.
 	
-	:Params:
+	:Parameters:
 		level
 			How many frames to look back in the stack for the calling frame.
 	
@@ -92,7 +92,7 @@ def get_call_locn_str (level=-1):
 	"""
 	Return information about where this function was called from.
 	
-	:Params:
+	:Parameters:
 		level
 			How many frames to look back in the stack for the calling frame.
 	

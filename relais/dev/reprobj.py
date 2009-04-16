@@ -10,9 +10,9 @@ __docformat__ = 'restructuredtext en'
 
 ### IMPORTS ###
 
-#__all__ = [
-#	'TagAttrib',
-#]
+__all__ = [
+	'ReprObj',
+]
 
 
 ### CONSTANTS & DEFINES ###

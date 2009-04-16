@@ -11,9 +11,12 @@ __docformat__ = 'restructuredtext en'
 
 ### IMPORTS ###
 
+import cStringIO
+
 from relais.dev.rcheck import assert_file_exists
 
 __all__ = [
+	'readaable_from_string',
 	'make_readable_handle',
 	'make_writable_handle',
 ]
@@ -23,13 +26,13 @@ __all__ = [
 
 ### IMPLEMENTATION ###
 
-def make_readable_handle (src, mode='r'):
+def readaable_from_string (strn):
 	"""
-	If not a readable file-like object, open as a file path for reading.
+	Make a readable buffer from a string.
+	
+	
 	"""
-	if (not hasattr (src, 'read')):
-		src = open (src, mode)
-	return src
+	return cStringIO.StringIO (strn)
 
 
 def make_writable_handle (dest, mode='w'):

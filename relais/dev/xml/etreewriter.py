@@ -43,7 +43,7 @@ class EtreeWriter (BaseWriter):
 		"""
 		Class c'tor.
 
-		:Params:
+		:Parameters:
 			dst
 				The ouptut point for the writer, a file path or an open and
 				readable file or file-like object.
@@ -58,7 +58,7 @@ class EtreeWriter (BaseWriter):
 		"""
 		Write an etree ELement or ElementTree to the output.
 
-		:Params:
+		:Parameters:
 			etree_xml
 				An etree ELement or ElementTree.
 		
@@ -85,7 +85,7 @@ def write_etree (etree_xml, dst, encoding='utf-8', prettyprint=False):
 	"""
 	A convenience method for the quick output of etree data.
 	
-	:Params:
+	:Parameters:
 		See `EtreeWriter`.
 	
 	"""

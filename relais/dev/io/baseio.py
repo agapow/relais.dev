@@ -12,7 +12,7 @@ __docformat__ = 'restructuredtext en'
 
 import os
 
-from relais.dev import fileutils
+from relais.dev import fileutils, options
 
 
 __all__ = [
@@ -27,11 +27,13 @@ class BaseIO (object):
 	A base class for all readers and writers.
 
 	"""
-	def __init__ (self, hndl, mode='rb', fmt=None):
+	dialect = options.Options()
+	
+	def __init__ (self, hndl, mode='rb', fmt=None, dialect=None):
 		"""
 		Class c'tor.
 
-		:Params:
+		:Parameters:
 			hndl
 				The output (or input) for the object, being a file path or an open
 				and writable (or readable) file-like object.
@@ -40,10 +42,12 @@ class BaseIO (object):
 				file-like is supplied, obviously this won't be used. By default,
 				it is set to 'rb', the least destructive option. Derived classes
 				should obviously override this.
-			fmt
+			fmt : string
 				The file format. This is case-insensitive and if not given is
 				derived from the handles ``name`` attribute. Obviously, it's
 				an error if the handle has no name.
+			dialect : dict or Options
+				A set of properties for IO behaviour.
 		
 		Note that if an open handle is passed to the reader it will not close
 		it, but if it has to open a handle, it will close it.
@@ -60,7 +64,11 @@ class BaseIO (object):
 		self.hndl_opened = hndl_opened
 		# determine & normalise format if need be
 		self.fmt = self.get_format (fmt)
-		## Main:
+		# set dialect
+		if (self.dialect is None):
+			self.dialect = options.Options()
+		if (dialect):
+			self.dialect.update (dialect)
 		
 	def __del__ (self):
 		"""
@@ -77,7 +85,7 @@ class BaseIO (object):
 		"""
 		Return the extension of a filename.
 
-		:Params:
+		:Parameters:
 			fname
 				A file name or path.
 			lower
@@ -90,10 +98,59 @@ class BaseIO (object):
 			return fmt
 		else:
 			# TODO: place with utilities?
-			fname = getattr (self.hndl, 'name')
+			fname = getattr (self.hndl, 'name', None)
 			if (fname is None):
 				return None
 			return fileutils.ext_from_filepath (fname, lower)
+
+	def get_dialect (prop, default=None):
+		"""
+		Get an IO dialect property.
+
+		Similar to (and uses) the dictionary 'get' method.
+
+		:Params:
+			prop string
+				The property name.
+			default
+				The value to return if the property is not set.
+
+		:Returns:
+			The property value (or default value).
+
+		"""
+		return self.dialect.get (prop, default)
+
+	def set_dialect (prop, value):
+		"""
+		Set an IO dialect property.
+
+		Similar to (and uses) the dictionary 'set' method.
+
+		:Params:
+			prop string
+				The property name.
+			value
+				The value to set the property to.
+
+		"""
+		return self.dialect.set (prop, value)
+
+	def has_dialect (prop):
+		"""
+		Check for the existence of an IO dialect property.
+
+		Similar to (and uses) the dictionary 'has_key' method.
+
+		:Params:
+			prop string
+				The property name.
+
+		:Returns:
+			A boolean for existence.
+
+		"""
+		return self.dialect.has_key (prop)
 
 
 

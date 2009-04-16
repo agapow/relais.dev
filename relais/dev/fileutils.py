@@ -29,7 +29,7 @@ def ext_from_filepath (fpath, lower=True):
 	"""
 	Return the extension of this file name or path.
 	
-	:Params:
+	:Parameters:
 		fpath
 			File name or path
 		lower

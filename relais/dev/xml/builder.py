@@ -35,7 +35,7 @@ class BaseBuilder (object):
 		"""
 		C'tor, creating the XML document and root element.
 		
-		:Params:
+		:Parameters:
 			root_tag
 				The type / name of the root element of the document.
 			encoding
@@ -51,7 +51,7 @@ class BaseBuilder (object):
 		"""
 		Create an new element.
 		
-		:Params:
+		:Parameters:
 			tag
 				The type / name of the new element document.
 			kwargs
@@ -70,7 +70,7 @@ class BaseBuilder (object):
 		"""
 		Create a new element and add it to the growing document.
 
-		:Params:
+		:Parameters:
 			parent
 				The element this new element will be appended to.
 			tag

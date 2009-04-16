@@ -3,8 +3,10 @@
 """
 Runtime checks and assertions.
 
-These include type-testing (e.g. "is this object like a list?") and a variety of
-assertion variants
+Enabling Python's duck-typing, and the ability to pass multiple argument
+types, these functions are for the checking the type and value of arguments.
+They include type-testing (e.g. "is this object like a list?") and a variety
+of assertion variants.
 
 """
 # NOTE: 20071125 tested and passed.
@@ -200,7 +202,25 @@ def assert_in_bounds (var, lower, upper):
 
 def failure (msg=None):
 	"""
-	Raises an assertion where you get somewhere you shouldn't have.
+	Raises an assertion when you get somewhere you shouldn't have.
+	
+	Often, it is useful to bug-proof a section of code with an automatic
+	assertion failure. This occurs most commonly when selecting from a series
+	of limited choices and checking for impossible choices::
+	
+		onetothree = ...
+		if (onetothree == 1):
+			do_one()
+		elif (onetothree == 2):
+			do_two()
+		elif (onetothree == 3):
+			do_two()
+		else:
+			failure ("must be from one to three not %s" % onetothree)
+			
+	Thus ``failure`` just provides a simple and readable shorthand for throwing
+	an assert.
+		
 	"""
 	final_msg = "shouldn't get here"
 	if (msg):
@@ -211,11 +231,17 @@ def failure (msg=None):
 ### WARNINGS & LOGGING
 
 def warn_deprecated (msg='deprecated'):
+	"""
+	Issue a warning that the calling code is deprecated.
+	"""
 	called_from = debug.get_call_locn_str (-3)
 	warnings.warn ("%s %s" % (called_from, msg), DeprecationWarning)
 
 
 def runtime_warning (msg):
+	"""
+	Issue a warning that the calling code is deprecated.
+	"""
 	called_from = debug.get_call_locn_str (-3)
 	warnings.warn ("%s %s" % (called_from, msg), RuntimeWarning)
 

@@ -30,7 +30,7 @@ class BaseWriter (BaseIO):
 		"""
 		Class c'tor.
 
-		:Params:
+		:Parameters:
 			dst
 				The output point for the writer, a file path or an open and
 				writable file-like object.

@@ -52,7 +52,7 @@ class FtpCnxn (object):
 	
 	For example::
 	
-		>>> c = FtpConnection ("www.viedigitale.com", "viedigit", "jiIpq2")
+		>>> c = FtpCnxn ("www.viedigitale.com", "viedigit", "jiIpq2")
 		>>> c.dir()
 		
 	"""
@@ -62,7 +62,7 @@ class FtpCnxn (object):
 		"""
 		Initiate a connection to the remote host.
 		
-		:Params:
+		:Parameters:
 			host string
 				The remote server name.
 			user string
@@ -102,7 +102,7 @@ class FtpCnxn (object):
 		"""
 		List all items in the remote directory, or those that match a pattern.
 		
-		:Params:
+		:Parameters:
 			patt string
 				What glob pattern, if any, to match file names against.
 				

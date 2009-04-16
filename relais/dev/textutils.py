@@ -9,17 +9,14 @@ Various utilities for manipulating text and strings.
 import re, time, StringIO, htmlentitydefs
 from os import linesep
 
+__all__ = [
+
+]
+
 
 ### CONSTANTS & DEFINES ###
 
 ### IMPLEMENTATION ###
-
-
-##
-# Removes HTML or XML character references and entities from a text string.
-#
-# @param text The HTML (or XML) source text.
-# @return The plain text, as a Unicode string, if necessary.
 
 def unescape (text):
 	"""

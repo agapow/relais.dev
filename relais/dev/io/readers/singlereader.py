@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 """
-An base class for all readers that can read a record at a time.
+Base class for readers that consumes the entirity of a source in a single read.
 
 """
 
@@ -10,18 +10,16 @@ __docformat__ = 'restructuredtext en'
 
 ### IMPORTS ###
 
-from exceptions import NotImplementedError
-
-import basereader
+from relais.dev.io.baseio import BaseIO
 
 __all__ = [
-	'RecordReader',
+	'SingleReader',
 ]
 
 
 ## CONSTANTS & DEFINES ###
 
-class RecordReader (basereader.BaseReader):
+class SingleReader (BaseIO):
 	"""
 	A base class for all readers.
 
@@ -43,26 +41,14 @@ class RecordReader (basereader.BaseReader):
 		it, but if it has to open a handle, it will close it.
 		
 		"""
-		basereader.BaseReader.__init__ (self, src, mode=mode, fmt=fmt)
+		BaseIO.__init__ (self, src, mode=mode, fmt=fmt)
 		
-	## MUTATORS:
 	def read (self):
 		"""
-		Read a single record from the input.
-
+		Subclass as appropriate.
 		"""
-		raise NotImplementedError ('must override method in subclass')
-
-	def __iter__ (self, recs):
-		"""
-		Iterate over every record in the source.
-		"""
-		while (not self.at_end()):
-			yield self.read()
-	
-	## INTERNALS:
-	def at_end (self):
-		raise NotImplementedError ('must override method in subclass')
+		return self.hndl.read()
+		
 
 
 

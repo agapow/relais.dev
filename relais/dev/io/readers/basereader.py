@@ -30,7 +30,7 @@ class BaseReader (BaseIO):
 		"""
 		Class c'tor.
 
-		:Params:
+		:Parameters:
 			src
 				The input point for the writer, a file path or an open and
 				readable file-like object.

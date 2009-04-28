@@ -28,6 +28,7 @@ In situations where complex setup (or cleanup) is required, subclassing would
 be appropriate.
 
 """
+#TODO: should be reimplemented using subprocess
 
 __docformat__ = 'restructuredtext en'
 
@@ -156,14 +157,16 @@ class ClineApp (object):
 		"""
 		Call cmdline with the given arguments.
 		
-		If needed, create and change to the working directory. If the necessary
-		flag is set, requirements will be checked and an exception thrown if
-		not met.
-		
 		:Parameters:
 			clargs
 				A string or sequence of strings being commandline arguments. If
 				a sequence, they are concatenated with intervening spaces.
+		
+		If needed, create and change to the working directory. If the necessary
+		flag is set, requirements will be checked and an exception thrown if
+		not met. Sublclass may provide a "run" or "run_<variant>" method (e.g.
+		'run_fastjoin', 'run_assemble') for calling given sets of arguments, and
+		doing any other preparation.
 		
 		"""
 		# NOTE: pass in the args as a dict? doesn't preserve order

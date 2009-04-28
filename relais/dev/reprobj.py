@@ -49,7 +49,7 @@ class ReprObj (object):
 		alphabetically and that if a field cannot be found, it is printed as
 		'?'.
 		"""
-		repr_strs = ["%s: %s" % (field, getattr (self, field, '?')) for
+		repr_strs = ["%s: '%s'" % (field, getattr (self, field, '?')) for
 			field in sorted (self._repr_fields)]
 		return "%s (%s)" % (self.__class__.__name__, ', '.join (repr_strs))
 		

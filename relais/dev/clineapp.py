@@ -35,7 +35,7 @@ __docformat__ = 'restructuredtext en'
 
 ### IMPORTS ###
 
-import os, commands, popen2, sys, exceptions
+import os, commands, popen2, sys, exceptions, subprocess, signal
 
 from common import *
 import scratchfile
@@ -132,8 +132,18 @@ class ClineApp (object):
 		
 	def __del__ (self):
 		"""
-		D'tor for the class, which cleans up the working dir if required..
+		D'tor for the class, which cleans up the working dir if required.
+		
+		This terminates the cline process if it is (apparently) still running.
 		"""
+		# See kill discussion at <http://objectmix.com/python/17481-subprocess-leaves-child-living.html>
+		# need 'hasattr' due to Python's unruly tidying up at session deletion
+		if (hasattr (self, '_proc')):
+			# is the process still running? kill it
+			if (self._proc.poll() is None):
+				os.kill (self._proc.pid, signal.SIGTERM)
+			del self._proc
+		# delete tmpdir if need be
 		self.cleanup_workdir()
 		
 	def assert_requirements (self):
@@ -180,18 +190,30 @@ class ClineApp (object):
 			'Perhaps a required program is not installed or inaccessible (%s).'
 		try:
 			# call and wait to finish
-			proc = popen2.Popen3 (cmdline, capturestderr=True)
-			self.cline_status = proc.wait()
+			#proc = popen2.Popen3 (cmdline, capturestderr=True)
+			if (self.use_workdir):
+				workdir = self._curr_workdir
+			else:
+				workdir = None
+			self._proc = subprocess.Popen (cmdline, stdout=subprocess.PIPE,
+           stderr=subprocess.PIPE, cwd=workdir, shell=True)
+			self.cline_status = self._proc.wait()
 			# store output and error stream
 			# note that if the proc faults out, it creates neither of its streams
-			if (proc.childerr):
-				self.cline_err = proc.childerr.read()
-			if (proc.fromchild):
-				self.cline_out = proc.fromchild.read()
-		except exceptions.StandardError, err:
-			raise exceptions.ValueError (err_msg % str (err))
+			#if (proc.childerr):
+			#	self.cline_err = proc.childerr.read()
+			#if (proc.fromchild):
+			#	self.cline_out = proc.fromchild.read()
+			if (self._proc.stderr):
+				self.cline_err = self._proc.stderr.read()
+			if (self._proc.stdout):
+				self.cline_out = self._proc.stdout.read()
+					
+		#except exceptions.StandardError, err:
+		#	raise exceptions.ValueError (err_msg % str (err))
 		except:
-			raise exceptions.ValueError (err_msg % 'unknown fault')
+			raise
+		#	raise exceptions.ValueError (err_msg % 'unknown fault')
 	
 	def _build_cmdline (self, *clargs):
 		"""
@@ -210,10 +232,11 @@ class ClineApp (object):
 			argline = ' ' + ' '.join (clargs)
 		else:
 			argline = ''
-		if (self.use_workdir):
-			prefix = "cd %s; " % self._curr_workdir
-		else:
-			prefix = ''
+		#if (self.use_workdir):
+		#	prefix = "cd %s; " % self._curr_workdir
+		#else:
+		#	prefix = ''
+		prefix = ''
 		## Return:
 		return "%s%s%s" % (prefix, self.exepath, argline)		
 		
